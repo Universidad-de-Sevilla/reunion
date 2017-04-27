@@ -1,6 +1,6 @@
 {
-  "name": "US/Reunion”,
-  "description": “Meeting Management",
+  "name": "US/Reunion",
+  "description": "Meeting Management",
   "license": "",
   "type": "project",
   "require-dev": {
@@ -30,7 +30,7 @@
   },
   "autoload": {
     "psr-4": {
-      "US\\Reunion\\”: "src/"
+      "US\\Reunion\\": "src/"
     }
   },
   "extra": {

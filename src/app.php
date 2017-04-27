@@ -8,11 +8,13 @@ use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
-use US\Reunion\Controller\ApiSesionController;
-use US\Reunion\Controller\PlaceController;
+use US\Reunion\Controller\ApiMeetingController;
+use US\Reunion\Controller\MeetingController;
 use US\Reunion\Controller\PersonController;
-use US\Reunion\Repository\PlaceRepository;
+use US\Reunion\Controller\PlaceController;
+use US\Reunion\Repository\MeetingRepository;
 use US\Reunion\Repository\PersonRepository;
+use US\Reunion\Repository\PlaceRepository;
 
 $app = new Application();
 $app->register(new RoutingServiceProvider());
@@ -59,22 +61,25 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), $app['security.fire
 
 // Register repositories as Silex services
 
-$app['repository.lugar'] = function ($app) {
-    return new PlaceRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Comun\Lugar'));
+$app['repository.meeting'] = function ($app) {
+    return new MeetingRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Meeting'));
 };
 $app['repository.person'] = function ($app) {
-    return new PersonRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Person\Person'));
+    return new PersonRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Person'));
 };
-$app['repository.sesion'] = function ($app) {
-    return new SesionRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Taller\Sesion'));
+$app['repository.place'] = function ($app) {
+    return new PlaceRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Place'));
 };
 
 // Register controllers as Silex services
-$app['controller.apiSesion'] = function ($app) {
-    return new ApiSesionController($app['repository.sesion']);
+$app['controller.apiMeeting'] = function ($app) {
+    return new ApiMeetingController($app['repository.meeting']);
+};
+$app['controller.meeting'] = function ($app) {
+    return new MeetingController($app['repository.meeting']);
 };
 $app['controller.place'] = function ($app) {
-    return new PlaceController\($app['repository.place']);
+    return new PlaceController($app['repository.place']);
 };
 $app['controller.person'] = function ($app) {
     return new PersonController($app['repository.person']);
