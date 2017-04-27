@@ -1,0 +1,104 @@
+# locales/es.yml
+
+
+# ACTION
+
+Add: Añadir
+Add Person: Añadir Persona
+Cancel: Cancelar
+Delete: Borrar
+Delete Event: Eliminar Evento
+Delete Person: Eliminar Persona
+Delete Workshop: Eliminar Taller
+Edit: Editar
+Edit Event: Editar Evento
+Edit Person: Editar Persona
+Edit Workshop: Editar Taller
+New: Nuevo
+New Event: Nuevo Evento
+New Person: Nueva Persona
+New Workshop: Nuevo Taller
+Next: Siguiente
+Previous: Previo
+Return to list: Volver al listado
+Save: Grabar
+Search: Buscar
+Toggle navigation: Conmutar navegación
+
+
+# FIELDS NAMES
+
+Birth Date: Fecha de nacimiento
+Comments: Comentarios
+Created at: Creado el
+Date: Fecha
+Description: Descripción
+Email: Correo
+End Date: Fecha Baja
+First Name: Nombre
+Gender: Sexo
+ID: ID
+Last Name: Apellidos
+Locality: Localidad
+Name: Nombre
+People: Personas
+Persona: Persona
+Place: Lugar
+Places: Lugares
+Province: Provincia
+Start Date: Fecha Inicio
+Subtitle: Subtítulo
+Teacher: Profesor
+Teachers: Profesores
+Time: Hora
+Title: Título
+
+#HELP
+
+Select gender: Seleccione sexo
+
+
+# TITLES & MENUS
+
+Administration: Administración
+Configuration: Configuración
+Contact Data: Datos de Contacto
+Events: Eventos
+Events List: Listado de Eventos
+Home: Inicio
+Login: Login
+Logout: Logout
+Management: Administrar
+My profile: Mi Perfil
+New Persona: Nueva Persona
+News: Novedades
+Others: Otros
+People: Personas
+People List: Lista de Personas
+Persona: Persona
+Persona Data Sheet: Ficha Persona
+Persona Edit: Editar Persona
+Personal Data: Datos Personales
+Photo Edit: Editar Fotografía
+Shop: Tienda
+Workshop: Taller
+Workshops: Talleres
+WorkShops List: Lista de Talleres
+
+
+# MESSAGES
+
+danger: ERROR
+Event has been created: Se ha creado un evento
+No people defined yet: Todavía no hay personas
+Person data has been updated: Se han actualizado los datos de esta persona
+Person has been created: Se ha creado una persona
+success: ÉXITO
+There is no record for this ID: No hay registro para esta ID
+Undefined: Indefinido
+warning: ATENCIÓN
+
+
+# VALIDATION
+
+name This value should not be blank. : El nombre no debe estar vacío.

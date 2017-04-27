@@ -1,0 +1,11 @@
+div#principal {
+    margin-top: 50px;
+}
+
+.main .container-fluid {
+    padding: 15px 15px;
+}
+
+.table-condensed th, .table-condensed td {
+    padding: 0.20rem;
+}
