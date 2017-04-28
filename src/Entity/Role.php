@@ -5,7 +5,7 @@ namespace US\Reunion\Entity;
 /**
  * @Entity
  */
-class Place
+class Role
 {
     /**
      * @Id

@@ -28,9 +28,10 @@ $ mkdir -p var/cache/profiler var/cache/twig var/logs var/private_uploads
 Create **reunion** database (mysql):
 
 ```
-CREATE USER reunion@localhost IDENTIFIED BY 'a_very_very_very_STRONG_password';
-GRANT ALL ON reunion.* TO reunion@localhost;
-REVOKE GRANT OPTION ON reunion.* FROM reunion@localhost;
+CREATE DATABASE reunion;
+CREATE USER `reunion`@`localhost` IDENTIFIED BY "SuperMegaPass3000.";
+GRANT ALL ON reunion.* TO `reunion`@`localhost`;
+REVOKE GRANT OPTION ON reunion.* FROM `reunion`@`localhost`;
 FLUSH PRIVILEGES;
 ```
 

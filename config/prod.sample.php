@@ -11,12 +11,12 @@ $app['debug'] = true;
 
 $app['db.options'] = array(
     'driver' => 'pdo_mysql',
-    'dbname' => 'portus',
+    'dbname' => 'reunion',
     'host' => 'localhost',
-    'user' => 'oportus',
-    'password' => 'a_very_very_very_STRONG_password',
-    'charset' => 'utf8',
-    'driverOptions' => array(1002 => 'SET NAMES utf8'),
+    'user' => 'reunion',
+    'password' => 'SuperBigPassword2000.',
+    'charset' => 'utf8mb4',
+    'driverOptions' => array(1002 => 'SET NAMES utf8mb4'),
 );
 
 $app['kernel.private_upload_dir'] = '/var/private_upload/';

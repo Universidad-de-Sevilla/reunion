@@ -1,0 +1,64 @@
+{% extends "layout/coreui/principal.html.twig" %}
+{% set active = 'people' %}
+{% set title = 'Editing'|trans ~ ': ' ~ person.firstName ~ ' '  ~ person.lastName %}
+{% block js %}
+
+{% endblock %}
+{% block content %}
+    <div class="col-lg-9">
+        <div class="card">
+            <form action="{{ path('person_save') }}" method="post">
+                <div class="card-header">
+                    <strong>{{ title }}</strong>
+                </div>
+                <div class="card-block">
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label for="id_disabled">{{ 'ID'|trans }}</label>
+                            <input type="text" class="form-control" name="id_disabled" value="{{ person.id }}"
+                                   disabled>
+                            <input type="hidden" class="form-control" name="id" value="{{ person.id }}">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="createdAt">{{ 'Created At'|trans }}</label>
+                            <input type="text" class="form-control" name="createdAt"
+                                   value="{{ person.createdAt|date('d/m/Y') }}" disabled>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="modifiedAt">{{ 'Modified At'|trans }}</label>
+                            <input type="text" class="form-control" name="modifiedAt"
+                                   value="{{ person.modifiedAt|date('d/m/Y') }}" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">{{ 'First Name'|trans }}</label>
+                        <input type="text" class="form-control" name="firstName" value="{{ person.firstName }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">{{ 'Last Name'|trans }}</label>
+                        <input type="text" class="form-control" name="lastName" value="{{ person.lastName }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">{{ 'Email'|trans }}</label>
+                        <input type="text" class="form-control required" name="email" value="{{ person.email }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">{{ 'Phone Number'|trans }}</label>
+                        <input type="text" class="form-control" name="phoneNumber" value="{{ person.phoneNumber }}">
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        <i class="fa fa-save"></i> {{ 'Save changes'|trans }}
+                    </button>
+                    <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fa fa-trash"></i> {{ 'Delete person'|trans }}
+                    </button>
+                    <a href="{{ path('people') }}" class="btn btn-white pull-right" role="button"><i
+                                class="fa fa-times"></i> {{ 'Cancel'|trans }}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

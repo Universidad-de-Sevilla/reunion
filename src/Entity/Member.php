@@ -2,7 +2,6 @@
 
 namespace US\Reunion\Entity;
 
-
 /**
  * @Entity
  */
@@ -27,6 +26,12 @@ class Member
      * @var Group
      */
     private $group;
+
+    /**
+     * @ManyToOne(targetEntity="Role")
+     * @var Role
+     */
+    private $role;
 
     /**
      * @return int
@@ -67,5 +72,23 @@ class Member
     {
         $this->group = $group;
     }
+
+    /**
+     * @return Role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param Role $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+
 
 }

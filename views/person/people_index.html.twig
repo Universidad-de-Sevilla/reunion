@@ -1,0 +1,73 @@
+{% extends "layout/coreui/principal.html.twig" %}
+{% set active = 'people' %}
+{% set title = 'People List'|trans %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title">{{ title }}</strong>
+        </div>
+        <div class="card-block">
+            <div class="row">
+                <div class="col-md-5">
+                    <form class="form-horizontal" method="post" action="{{ path('people_search') }}">
+                        <div class="form-group row">
+                            <div class="col-md-11">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control"
+                                           placeholder="{{ 'Search phrase'|trans }}"><span
+                                            class="input-group-btn"><button type="submit" class="btn btn-primary"><i
+                                                    class="fa fa-search"></i> {{ 'Search'|trans }}</button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-5">
+                    <div class="btn-group" data-toggle="buttons" aria-label="Filters">
+                        <label class="btn btn-outline-primary active">
+                            <input type="radio" name="options" id="option0">{{'Last Edited'|trans}}
+                        </label>
+                        <label class="btn btn-outline-primary">
+                            <input type="radio" name="options" id="option1">{{'Last Added'|trans}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-primary pull-right" role="button" href="{{ path('person_add') }}"><i
+                                class="fa fa-plus-circle"></i> {{ 'New'|trans }}</a>
+                </div>
+            </div>
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th>{{'ID'|trans}}</th>
+                    <th>{{'Name'|trans}}</th>
+                    <th>{{'Email'|trans}}</th>
+                    <th>{{'Phone number'|trans}}</th>
+                    <th>{{'Created at'|trans }}</th>
+                    <th>{{'Modified at'|trans}}</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for person in people %}
+                    <tr>
+                        <td><a href="{{ path('person_edit', {'id': person.id}) }}">{{ person.id }}</a></td>
+                        <td>{{ person.lastName }}, {{ person.firstName }}</td>
+                        <td>{{ person.email }}</td>
+                        <td>{{ person.phoneNumber }}</td>
+                        <td>{{ person.createdAt|date('d/m/Y') }}</td>
+                        <td>{{ person.modifiedAt|date('d/m/Y') }}</td>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">{{ 'No people defined yet.'|trans }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

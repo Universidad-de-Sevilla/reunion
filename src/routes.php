@@ -27,18 +27,11 @@ $app->post('/api/sesion', 'controller.apiSesion:addAction');
 $app->put('/api/sesion/{id}', 'controller.apiSesion:editAction');
 $app->delete('/api/sesion/{id}', 'controller.apiSesion:deleteAction');
 
-$app->get('/lugares', function () use ($app) {
-    return $app['twig']->render('comun/lugares_administrar.html.twig');
-})->bind('places_admin');
+$app->get('/lugares', 'controller.places:adminAction')
+    ->bind('places_admin');
 
-$app->get('/personas/{page}/{limit}', 'controller.person:indexAction')
-    ->value('page', '1')
-    ->value('limit', '25')
-    ->assert('page', '\d+')
-    ->assert('limit', '\d+')
-    ->bind('personas');
-$app->get('/personas', 'controller.persona:listAdminAction')
-    ->bind("people_admin");
+$app->get('/personas', 'controller.person:indexAction')
+    ->bind('people');
 $app->get('/persona/crear', 'controller.person:addAction')
     ->bind("person_add");
 $app->get('/persona/editar/{id}', 'controller.person:editAction')
@@ -48,12 +41,20 @@ $app->post('/persona/grabar', 'controller.person:saveAction')
 $app->get('/persona/borrar/{id}', 'controller.person:deleteAction')
     ->bind("person_delete");
 $app->post('/personas', 'controller.person:searchAction')
-    ->bind("person_search");
+    ->bind("people_search");
+$app->get('/persona/{id}', 'controller.person:viewAction')
+        ->bind("person_view");
 
-$app->get('/sesion/editar/{id}', 'controller.sesion:editAction')
-    ->bind("sesion_editar");
-$app->post('/sesion/grabar', 'controller.sesion:saveAction')
-    ->bind("sesion_grabar");
+$app->get('/grupos', 'controller.group:indexAction')
+    ->bind('groups');
+$app->get('/group/crear', 'controller.group:addAction')
+    ->bind("group_add");
+$app->get('/grupo/borrar/{id}', 'controller.group:deleteAction')
+    ->bind("group_delete");
+$app->get('/grupo/editar/{id}', 'controller.group:editAction')
+    ->bind("group_edit");
+$app->post('/grupo/grabar', 'controller.group:saveAction')
+    ->bind("group_save");
 
 $app->get('/private_upload/{item_id}/{path}', function ($item_id, $path) use ($app) {
     if (!file_exists('../var/private_upload/' . $item_id . '/' . $path)) {
