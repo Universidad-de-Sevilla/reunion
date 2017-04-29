@@ -1,0 +1,63 @@
+{% extends "layout/coreui/principal.html.twig" %}
+{% set active = 'groups' %}
+{% set title = 'Manage groups'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="card">
+                <div class="card-header">
+                    <strong>{{ 'Group List'|trans }}</strong>
+                    <form action="" method="post" class="form-inline">
+                        <div class="form-group pull-right">
+                            <label class="sr-only" for="search">{{ 'Search'|trans }}</label>
+                            <input type="text" id="search" name="search" class="form-control">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-block">
+                    <table class="table-outline">
+                        <thead>
+                        <tr>
+                            <th>Grupo</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for group in groups %}
+                            <tr>
+                                <td>{{ group.name }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-5">
+            <div class="card">
+                <div class="card-header">
+                    <strong>{{ 'Add Group' }}</strong>
+                </div>
+                <form action="{{ path('group_save') }}" method="post">
+                    <div class="card-block">
+                        <div class="form-group">
+                            <label for="name">{{ 'Name'|trans }}</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-sm btn-primary"><i
+                                    class="fa fa-dot-circle-o"></i> {{ 'Save'|trans }}</button>
+                        <button type="reset" class="btn btn-sm btn-danger"><i
+                                    class="fa fa-ban"></i> {{ 'Cancel'|trans }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!--/col-->
+    </div>
+    </div>
+{% endblock %}

@@ -9,12 +9,12 @@ use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 use US\Reunion\Controller\ApiMeetingController;
+use US\Reunion\Controller\GroupController;
 use US\Reunion\Controller\MeetingController;
 use US\Reunion\Controller\PersonController;
-use US\Reunion\Controller\PlaceController;
+use US\Reunion\Repository\GroupRepository;
 use US\Reunion\Repository\MeetingRepository;
 use US\Reunion\Repository\PersonRepository;
-use US\Reunion\Repository\PlaceRepository;
 
 $app = new Application();
 $app->register(new RoutingServiceProvider());
@@ -61,25 +61,25 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), $app['security.fire
 
 // Register repositories as Silex services
 
+$app['repository.group'] = function ($app) {
+    return new GroupRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Group'));
+};
 $app['repository.meeting'] = function ($app) {
     return new MeetingRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Meeting'));
 };
 $app['repository.person'] = function ($app) {
     return new PersonRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Person'));
 };
-$app['repository.place'] = function ($app) {
-    return new PlaceRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Place'));
-};
 
 // Register controllers as Silex services
 $app['controller.apiMeeting'] = function ($app) {
     return new ApiMeetingController($app['repository.meeting']);
 };
+$app['controller.group'] = function ($app) {
+    return new GroupController($app['repository.group']);
+};
 $app['controller.meeting'] = function ($app) {
     return new MeetingController($app['repository.meeting']);
-};
-$app['controller.place'] = function ($app) {
-    return new PlaceController($app['repository.place']);
 };
 $app['controller.person'] = function ($app) {
     return new PersonController($app['repository.person']);

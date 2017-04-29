@@ -45,7 +45,7 @@ $app->post('/personas', 'controller.person:searchAction')
 $app->get('/persona/{id}', 'controller.person:viewAction')
         ->bind("person_view");
 
-$app->get('/grupos', 'controller.group:indexAction')
+$app->get('/grupos', 'controller.group:adminAction')
     ->bind('groups');
 $app->get('/group/crear', 'controller.group:addAction')
     ->bind("group_add");

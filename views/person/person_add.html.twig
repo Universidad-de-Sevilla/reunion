@@ -3,35 +3,40 @@
 {% set title = 'New Person'|trans %}
 
 {% block content %}
-<div  class="col-lg-9">
-    <div class="card">
-        <form action="{{ path('person_save') }}" method="post" enctype='multipart/form-data'>
-            <div class="card-header">
-                <strong>{{ title }}</strong>
-            </div>
-            <div class="card-block">
-                <div class="form-group">
-                    <label for="firstName">{{ 'First Name'|trans }}</label>
-                    <input type="text" class="form-control" name="firstName">
+    <div class="col-lg-9">
+        <div class="card">
+            <form action="{{ path('person_save') }}" method="post" enctype='multipart/form-data'>
+                <div class="card-header">
+                    <strong>{{ title }}</strong>
                 </div>
-                <div class="form-group">
-                    <label for="lastName">{{ 'Last Name'|trans }}</label>
-                    <input type="text" class="form-control" name="lastName">
+                <div class="card-block">
+                    <div class="form-group">
+                        <label for="firstName">{{ 'First Name'|trans }}</label>
+                        <input type="text" class="form-control" name="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">{{ 'Last Name'|trans }}</label>
+                        <input type="text" class="form-control" name="lastName">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for="email">{{ 'Email'|trans }}</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                <input type="text" class="form-control required" name="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">{{ 'Phone Number'|trans }}</label>
+                        <input type="text" class="form-control" name="phoneNumber">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">{{ 'Email'|trans }}</label>
-                    <input type="text" class="form-control required" name="email">
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                    <button type="reset" class="btn btn-danger">{{ 'Cancel'|trans }}</button>
                 </div>
-                <div class="form-group">
-                    <label for="phoneNumber">{{ 'Phone Number'|trans }}</label>
-                    <input type="text" class="form-control" name="phoneNumber">
-                </div>
-            </div>
-            <div class="card-footer">
-                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
-                <button type="reset" class="btn btn-danger">{{ 'Cancel'|trans }}</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 {% endblock %}

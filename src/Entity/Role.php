@@ -16,7 +16,7 @@ class Role
     private $id;
 
     /**
-     * @Column(type="string")
+     * @Column(type="string", unique=TRUE, nullable=FALSE)
      * @var string
      */
     private $name;
