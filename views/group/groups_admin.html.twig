@@ -16,15 +16,18 @@
                     </form>
                 </div>
                 <div class="card-block">
-                    <table class="table-outline">
+                    <table class="table datatable">
                         <thead>
                         <tr>
-                            <th>Grupo</th>
+                            <th>{{'ID'|trans}}</th>
+                            <th>{{'Grupo'|trans}}</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for group in groups %}
                             <tr>
+                                <td><a data-group_id="{{ group.id }}" class="group_edit tag tag-pill tag-info"
+                                       href="#">{{ group.id }}</a></td>
                                 <td>{{ group.name }}</td>
                             </tr>
                         {% endfor %}
@@ -47,10 +50,10 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-sm btn-primary"><i
-                                    class="fa fa-dot-circle-o"></i> {{ 'Save'|trans }}</button>
-                        <button type="reset" class="btn btn-sm btn-danger"><i
-                                    class="fa fa-ban"></i> {{ 'Cancel'|trans }}
+                        <button type="submit" class="btn btn-primary"><i
+                                    class="fa fa-floppy-o"></i> {{ 'Save'|trans }}</button>
+                        <button type="reset" class="btn btn-secondary pull-right"><i
+                                    class="fa fa-times"></i> {{ 'Cancel'|trans }}
                         </button>
                     </div>
                 </form>
@@ -60,4 +63,10 @@
         <!--/col-->
     </div>
     </div>
+{% endblock %}
+
+
+{% block js %}
+    {{ parent() }}
+    <script src="/assets/views/group/group_edit.js"></script>
 {% endblock %}

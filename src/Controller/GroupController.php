@@ -63,7 +63,7 @@ class GroupController
 
         return $app['twig']->render('group/groups_admin.html.twig', array(
                 'groups' => $groups,
-                'url' => $app['url_generator']->generate('groups'),
+                'url' => $app['url_generator']->generate('groups_admin'),
         ));
     }
 
@@ -97,7 +97,7 @@ class GroupController
     {
         $message = "There is no record for ID " . $id;
         $app['session']->getFlashBag()->add('danger', $message);
-        return $app->redirect($app['url_generator']->generate('groups'));
+        return $app->redirect($app['url_generator']->generate('groups_admin'));
     }
 
     /**
@@ -135,7 +135,7 @@ class GroupController
         } else {
             $this->groupRepository->save($group);
             $app['session']->getFlashBag()->add('success', $message);
-            $redirect = $app['url_generator']->generate('group_view', array('id' => $group->getId()));
+            $redirect = $app['url_generator']->generate('groups_admin');
         }
 
         return $app->redirect($redirect);

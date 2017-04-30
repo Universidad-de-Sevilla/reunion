@@ -4,20 +4,21 @@
 # ACTION
 
 Add: Añadir
+Add Group: Añadir Grupo
 Add Person: Añadir Persona
 Cancel: Cancelar
 Delete: Borrar
-Delete Event: Eliminar Evento
+Delete Group: Eliminar Grupo
+Delete Meeting: Eliminar Reunión
 Delete Person: Eliminar Persona
-Delete Workshop: Eliminar Taller
 Edit: Editar
-Edit Event: Editar Evento
+Edit Group: Editar Grupo
+Edit Meeting: Editar Reunión
 Edit Person: Editar Persona
-Edit Workshop: Editar Taller
 New: Nuevo
-New Event: Nuevo Evento
+New Group: Nuevo Grupo
+New Meeting: Nueva Reunión
 New Person: Nueva Persona
-New Workshop: Nuevo Taller
 Next: Siguiente
 Previous: Previo
 Return to list: Volver al listado
@@ -26,7 +27,7 @@ Search: Buscar
 Toggle navigation: Conmutar navegación
 
 
-# FIELDS NAMES
+# FIELDS & OBJECTS NAMES
 
 Birth Date: Fecha de nacimiento
 Comments: Comentarios
@@ -36,10 +37,14 @@ Description: Descripción
 Email: Correo
 End Date: Fecha Baja
 First Name: Nombre
-Gender: Sexo
+Gender:
+Group: Grupo
+Groups: Grupos
 ID: ID
 Last Name: Apellidos
 Locality: Localidad
+Meeting: Reunión
+Meetings: Reuniones
 Name: Nombre
 People: Personas
 Persona: Persona
@@ -48,8 +53,6 @@ Places: Lugares
 Province: Provincia
 Start Date: Fecha Inicio
 Subtitle: Subtítulo
-Teacher: Profesor
-Teachers: Profesores
 Time: Hora
 Title: Título
 
@@ -63,12 +66,12 @@ Select gender: Seleccione sexo
 Administration: Administración
 Configuration: Configuración
 Contact Data: Datos de Contacto
-Events: Eventos
-Events List: Listado de Eventos
+Group List: Lista de Grupos
 Home: Inicio
 Login: Login
 Logout: Logout
 Management: Administrar
+Meeting List: Lista de Reuniones
 My profile: Mi Perfil
 New Persona: Nueva Persona
 News: Novedades
@@ -80,16 +83,13 @@ Persona Data Sheet: Ficha Persona
 Persona Edit: Editar Persona
 Personal Data: Datos Personales
 Photo Edit: Editar Fotografía
-Shop: Tienda
-Workshop: Taller
-Workshops: Talleres
-WorkShops List: Lista de Talleres
 
 
 # MESSAGES
 
 danger: ERROR
-Event has been created: Se ha creado un evento
+Group has been created: Se ha creado un grupo
+No group defined yet: Todavía no hay grupos
 No people defined yet: Todavía no hay personas
 Person data has been updated: Se han actualizado los datos de esta persona
 Person has been created: Se ha creado una persona

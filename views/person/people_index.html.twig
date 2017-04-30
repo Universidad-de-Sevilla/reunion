@@ -53,7 +53,7 @@
                 <tbody>
                 {% for person in people %}
                     <tr>
-                        <td><a href="{{ path('person_edit', {'id': person.id}) }}">{{ person.id }}</a></td>
+                        <td><a href="{{ path('person_edit', {'id': person.id}) }}"><span class="tag tag-pill tag-info">{{ person.id }}</span></a></td>
                         <td>{{ person.lastName }}, {{ person.firstName }}</td>
                         <td>{{ person.email }}</td>
                         <td>{{ person.phoneNumber }}</td>

@@ -27,9 +27,6 @@ $app->post('/api/sesion', 'controller.apiSesion:addAction');
 $app->put('/api/sesion/{id}', 'controller.apiSesion:editAction');
 $app->delete('/api/sesion/{id}', 'controller.apiSesion:deleteAction');
 
-$app->get('/lugares', 'controller.places:adminAction')
-    ->bind('places_admin');
-
 $app->get('/personas', 'controller.person:indexAction')
     ->bind('people');
 $app->get('/persona/crear', 'controller.person:addAction')
@@ -46,7 +43,7 @@ $app->get('/persona/{id}', 'controller.person:viewAction')
         ->bind("person_view");
 
 $app->get('/grupos', 'controller.group:adminAction')
-    ->bind('groups');
+    ->bind('groups_admin');
 $app->get('/group/crear', 'controller.group:addAction')
     ->bind("group_add");
 $app->get('/grupo/borrar/{id}', 'controller.group:deleteAction')
