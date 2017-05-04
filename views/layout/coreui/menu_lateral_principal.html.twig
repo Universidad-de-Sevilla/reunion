@@ -20,19 +20,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-graduation"></i> {{ 'People'|trans }}</a>
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('people') }}"><i class="icon-puzzle"></i> {{ 'Administrar'|trans }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('groups_admin') }}"><i class="icon-graduation"></i> {{ 'Groups'|trans }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="icon-graduation"></i> {{ 'Configuration'|trans }}</a>
-                    </li>
-                </ul>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('groups_admin') }}"><i class="icon-people"></i> {{ 'Groups'|trans }}</a>
             </li>
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-trophy"></i> {{ 'Convocatorias'|trans }}</a>

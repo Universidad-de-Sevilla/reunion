@@ -1,0 +1,39 @@
+<form action="{{ path('type_save') }}" method="post">
+    <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">{{ 'Edit Type'|trans }}
+            <button type="button" class="close" data-dismiss="modal" aria-label="{{ 'Cancel'|trans }}">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </h5>
+    </div>
+    <div class="modal-body">
+        <div class="form-type row">
+            <div class="col-md-3">
+                <label for="id">{{ 'ID'|trans }}</label>
+                <input type="text" class="form-control" value="{{ type.id }}" disabled>
+                <input type="hidden" name="id" value="{{ type.id }}">
+            </div>
+            <div class="col-md-3 offset-md-6">
+                <label for="uses">{{ 'Uses'|trans }}</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                    <input type="text" class="form-control" name="uses" value="12" disabled>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="name">{{ 'Name'|trans }}</label>
+            <input type="text" class="form-control" name="name" value="{{ type.name }}">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary pull-left"><i
+                    class="fa fa-floppy-o"></i> {{ 'Save'|trans }}</button>
+        <a href="{{ path('type_delete', {'id':type.id}) }}" type="button" class="btn btn-danger"><i
+                    class="fa fa-trash"></i> {{ 'Delete'|trans }}</a>
+        <button type="reset" class="btn btn-secondary" data-dismiss="modal"><i
+                    class="fa fa-times"></i> {{ 'Cancel'|trans }}
+        </button>
+    </div>
+</form>

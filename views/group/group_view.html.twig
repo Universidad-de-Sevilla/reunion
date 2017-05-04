@@ -1,0 +1,59 @@
+{% extends 'layout/coreui/principal.html.twig' %}
+{% set active = 'groups' %}
+{% set title = group.name %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        {{ title }}
+    </div>
+    <div class="card-block">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="#data" aria-controls="{{ 'Data Sheet'|trans }}"
+                   aria-expanded="true"
+                   role="tab" data-toggle="tab">{{ 'Data Sheet'|trans }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#members" aria-controls="{{ 'Members'|trans }}"
+                   aria-expanded="false"
+                   role="tab" data-toggle="tab">{{ 'Members'|trans }}</a>
+            </li>
+
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="data">
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label for="id">{{ 'ID'|trans }}</label>
+                        <input type="text" class="form-control" value="{{ group.id }}" disabled>
+                    </div>
+                    <div class="col-md-3 offset-md-6">
+                        <label for="members">{{ 'Members'|trans }}</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                            <input type="text" class="form-control" name="members" value="12" disabled>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="name">{{ 'Name'|trans }}</label>
+                    <input type="text" class="form-control" name="name" value="{{ group.name }}" disabled>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane active" id="members">
+                <table>
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

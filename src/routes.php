@@ -44,7 +44,9 @@ $app->get('/persona/{id}', 'controller.person:viewAction')
 
 $app->get('/grupos', 'controller.group:adminAction')
     ->bind('groups_admin');
-$app->get('/group/crear', 'controller.group:addAction')
+$app->get('/grupo/{id}', 'controller.group:viewAction')
+    ->bind('group');
+$app->get('/grupo/crear', 'controller.group:addAction')
     ->bind("group_add");
 $app->get('/grupo/borrar/{id}', 'controller.group:deleteAction')
     ->bind("group_delete");
@@ -52,6 +54,8 @@ $app->get('/grupo/editar/{id}', 'controller.group:editAction')
     ->bind("group_edit");
 $app->post('/grupo/grabar', 'controller.group:saveAction')
     ->bind("group_save");
+$app->get('/mis_grupos', 'controller.group:indexAction')
+    ->bind('groups');
 
 $app->get('/private_upload/{item_id}/{path}', function ($item_id, $path) use ($app) {
     if (!file_exists('../var/private_upload/' . $item_id . '/' . $path)) {

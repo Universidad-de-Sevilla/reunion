@@ -1,0 +1,65 @@
+{% extends 'layout/coreui/principal.html.twig' %}
+{% set active = 'groups' %}
+{% set title = 'Groups List'|trans %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-block">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#my_groups" aria-controls="{{ 'My Groups'|trans }}"
+                       aria-expanded="true"
+                       role="tab" data-toggle="tab">{{ 'My Groups'|trans }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#all_groups" aria-controls="{{ 'All Groups'|trans }}"
+                       aria-expanded="false"
+                       role="tab" data-toggle="tab">{{ 'All Groups'|trans }}</a>
+                </li>
+
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="my_groups">
+                    <table class="table datatable">
+                        <thead>
+                        <tr>
+                            <th>{{ 'ID'|trans }}</th>
+                            <th>{{ 'Grupo'|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for group in myGroups %}
+                            <tr>
+                                <td><a data-group_id="{{ group.id }}" class="group_edit tag tag-pill tag-info"
+                                       href="#">{{ group.id }}</a></td>
+                                <td>{{ group.name }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="all_groups">
+                    <table class="table datatable">
+                        <thead>
+                        <tr>
+                            <th>{{ 'ID'|trans }}</th>
+                            <th>{{ 'Grupo'|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for group in allGroups %}
+                            <tr>
+                                <td><a data-group_id="{{ group.id }}" class="group_edit tag tag-pill tag-info"
+                                       href="#">{{ group.id }}</a></td>
+                                <td>{{ group.name }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

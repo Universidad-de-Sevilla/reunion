@@ -31,17 +31,20 @@ class GroupController
      */
     public function indexAction(Application $app)
     {
+        $allGroups = null;
         $criteria = array();
         $orderBy = array('name' => 'ASC');
         $total = $this->groupRepository->count();
         if ($total > 0) {
-            $groups = $this->groupRepository->findBy($criteria, $orderBy);
-        } else {
-            $groups = null;
+            $allGroups = $this->groupRepository->findBy($criteria, $orderBy);
         }
 
+        $myGroups = null;
+        //TODO: todo
+
         return $app['twig']->render('group/groups_index.html.twig', array(
-                'groups' => $groups,
+                'myGroups' => $myGroups,
+                'allGroups' => $allGroups,
                 'url' => $app['url_generator']->generate('groups'),
         ));
     }
@@ -181,7 +184,7 @@ class GroupController
         $group = $this->groupRepository->find($id);
         if ($group) {
             $this->groupRepository->delete($group);
-            $response = $app->redirect($app['url_generator']->generate('groups'));
+            $response = $app->redirect($app['url_generator']->generate('groups_admin'));
         } else {
             $response = $this->redirectOnInvalidId($app, $id);
         }

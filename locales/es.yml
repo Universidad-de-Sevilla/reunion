@@ -11,14 +11,18 @@ Delete: Borrar
 Delete Group: Eliminar Grupo
 Delete Meeting: Eliminar Reunión
 Delete Person: Eliminar Persona
+Delete Task: Borrar Tarea
 Edit: Editar
 Edit Group: Editar Grupo
 Edit Meeting: Editar Reunión
 Edit Person: Editar Persona
+Last Added: Añadidos Recientes
+Last Edited: Editados Recientes
 New: Nuevo
 New Group: Nuevo Grupo
 New Meeting: Nueva Reunión
 New Person: Nueva Persona
+New Task: Nueva Tarea
 Next: Siguiente
 Previous: Previo
 Return to list: Volver al listado
@@ -30,6 +34,7 @@ Toggle navigation: Conmutar navegación
 # FIELDS & OBJECTS NAMES
 
 Birth Date: Fecha de nacimiento
+Calendar: Calendario
 Comments: Comentarios
 Created at: Creado el
 Date: Fecha
@@ -53,6 +58,8 @@ Places: Lugares
 Province: Provincia
 Start Date: Fecha Inicio
 Subtitle: Subtítulo
+Task: Tarea
+Tasks: Tareas
 Time: Hora
 Title: Título
 
@@ -64,6 +71,7 @@ Select gender: Seleccione sexo
 # TITLES & MENUS
 
 Administration: Administración
+All Groups: Todos los Grupos
 Configuration: Configuración
 Contact Data: Datos de Contacto
 Group List: Lista de Grupos
@@ -72,7 +80,11 @@ Login: Login
 Logout: Logout
 Management: Administrar
 Meeting List: Lista de Reuniones
-My profile: Mi Perfil
+My Calendar: Mi Calendario
+My Groups: Mis Grupos
+My Meetings: Mis Reuniones
+My Profile: Mi Perfil
+My Tasks: Mis Tareas
 New Persona: Nueva Persona
 News: Novedades
 Others: Otros
@@ -89,10 +101,12 @@ Photo Edit: Editar Fotografía
 
 danger: ERROR
 Group has been created: Se ha creado un grupo
+Group has been deleted: Se ha eliminado un grupo
 No group defined yet: Todavía no hay grupos
 No people defined yet: Todavía no hay personas
 Person data has been updated: Se han actualizado los datos de esta persona
 Person has been created: Se ha creado una persona
+Person has been deleted: Se ha eliminado una persona
 success: ÉXITO
 There is no record for this ID: No hay registro para esta ID
 Undefined: Indefinido
