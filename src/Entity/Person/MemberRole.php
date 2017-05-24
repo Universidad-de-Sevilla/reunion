@@ -1,14 +1,12 @@
 <?php
 
-namespace US\Reunion\Entity;
-
-use Doctrine\Common\Collections\ArrayCollection;
+namespace US\Reunion\Entity\Person;
 
 /**
  * @Entity
- * @Table(name="Grupo")
+ * @Table(name="MemberRole")
  */
-class Group
+class MemberRole
 {
     /**
      * @Id
@@ -19,16 +17,10 @@ class Group
     private $id;
 
     /**
-     * @Column(type="string")
+     * @Column(type="string", unique=TRUE, nullable=FALSE)
      * @var string
      */
     private $name;
-
-    /**
-     * @OneToMany(targetEntity="US\Reunion\Entity\Member", mappedBy="group")
-     * @var Member[]
-     */
-    private $members;
 
     /**
      * @param array $data
@@ -38,7 +30,6 @@ class Group
         foreach ($data as $name => $value) {
             $this->$name = $value;
         }
-        $this->miembros = new ArrayCollection();
     }
 
     /**
@@ -63,22 +54,6 @@ class Group
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * @return Member[]
-     */
-    public function getMembers()
-    {
-        return $this->members;
-    }
-
-    /**
-     * @param Member $member
-     */
-    public function addMember($member)
-    {
-        $this->members[] = $member;
     }
 
 }

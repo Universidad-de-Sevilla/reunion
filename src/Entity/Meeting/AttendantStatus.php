@@ -1,11 +1,12 @@
 <?php
 
-namespace US\Reunion\Entity;
+namespace US\Reunion\Entity\Meeting;
 
 /**
  * @Entity
+ * @Table(name="MeetingAttendantStatus")
  */
-class Role
+class AttendantStatus
 {
     /**
      * @Id
@@ -16,20 +17,10 @@ class Role
     private $id;
 
     /**
-     * @Column(type="string", unique=TRUE, nullable=FALSE)
+     * @Column(type="string", nullable=FALSE)
      * @var string
      */
     private $name;
-
-    /**
-     * @param array $data
-     */
-    public function __construct($data)
-    {
-        foreach ($data as $name => $value) {
-            $this->$name = $value;
-        }
-    }
 
     /**
      * @return int
@@ -37,6 +28,14 @@ class Role
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
