@@ -65,7 +65,7 @@ $app['repository.group'] = function ($app) {
     return new GroupRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Group'));
 };
 $app['repository.meeting'] = function ($app) {
-    return new MeetingRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Meeting'));
+    return new MeetingRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Meeting\Meeting'));
 };
 $app['repository.person'] = function ($app) {
     return new PersonRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Person'));

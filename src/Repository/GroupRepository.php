@@ -59,4 +59,19 @@ class GroupRepository extends EntityRepository
 
         return $query->getSingleScalarResult();
     }
+
+    public function findByOr($criteria)
+    {
+        $dql = 'SELECT t FROM US\Cultus\Entity\Taller\Taller t';
+        if (count($criteria) > 0) {
+            $dql .= ' WHERE 1 = 0';
+            foreach ($criteria as $key => $value) {
+                $dql .= " OR t.$key LIKE '%$value%'";
+            }
+        }
+        $query = parent::getEntityManager()->createQuery($dql);
+
+        return $query->getResult();
+    }
+
 }
