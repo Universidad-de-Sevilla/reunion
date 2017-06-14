@@ -54,7 +54,9 @@ class GroupRepository extends EntityRepository
      */
     public function count()
     {
-        $dql = 'SELECT COUNT(g.id) FROM US\Reunion\Entity\Group g';
+
+        $dql = /** @lang dql */
+            'SELECT COUNT(g.id) FROM US\Reunion\Entity\Group g';
         $query = parent::getEntityManager()->createQuery($dql);
 
         return $query->getSingleScalarResult();
@@ -62,7 +64,8 @@ class GroupRepository extends EntityRepository
 
     public function findByOr($criteria)
     {
-        $dql = 'SELECT g FROM US\Reunion\Entity\Group g';
+        $dql = /** @lang dql */
+            'SELECT g FROM US\Reunion\Entity\Group g';
         if (count($criteria) > 0) {
             $dql .= ' WHERE 1 = 0';
             foreach ($criteria as $key => $value) {
