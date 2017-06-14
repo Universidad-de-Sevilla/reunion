@@ -62,11 +62,11 @@ class GroupRepository extends EntityRepository
 
     public function findByOr($criteria)
     {
-        $dql = 'SELECT t FROM US\Cultus\Entity\Taller\Taller t';
+        $dql = 'SELECT g FROM US\Reunion\Entity\Group g';
         if (count($criteria) > 0) {
             $dql .= ' WHERE 1 = 0';
             foreach ($criteria as $key => $value) {
-                $dql .= " OR t.$key LIKE '%$value%'";
+                $dql .= " OR g.$key LIKE '%$value%'";
             }
         }
         $query = parent::getEntityManager()->createQuery($dql);

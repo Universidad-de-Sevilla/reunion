@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Entity
- * @Table(name="Group")
+ * @Table(name="Team")
  */
 class Group
 {
