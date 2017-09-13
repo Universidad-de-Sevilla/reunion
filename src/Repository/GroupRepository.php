@@ -20,7 +20,6 @@ class GroupRepository extends EntityRepository
     }
 
     /**
-     * Guarda una groupa en la base de datos
      * @param Group $group
      */
     public function save(Group $group)
@@ -33,13 +32,13 @@ class GroupRepository extends EntityRepository
      * @param int $id
      * @param int|null $lockMode
      * @param int|null $lockVersion
-     * @return Group|null
+     * @return object Group|null
      */
     public function find($id, $lockMode = null, $lockVersion = null)
     {
         return parent::find($id, $lockMode, $lockVersion);
     }
-
+    
     /**
      * @param Group $group
      */
