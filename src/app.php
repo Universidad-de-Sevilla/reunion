@@ -60,7 +60,6 @@ $app['security.firewalls'] = array(
 $app->register(new Silex\Provider\SecurityServiceProvider(), $app['security.firewalls']);
 
 // Register repositories as Silex services
-
 $app['repository.group'] = function ($app) {
     return new GroupRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Group'));
 };
@@ -84,8 +83,6 @@ $app['controller.meeting'] = function ($app) {
 $app['controller.person'] = function ($app) {
     return new PersonController($app['repository.person']);
 };
-
-
 
 // Options for Twig Template Engine
 $app['twig.path'] = array(__DIR__ . '/../views');

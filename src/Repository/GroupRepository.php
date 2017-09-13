@@ -20,7 +20,6 @@ class GroupRepository extends EntityRepository
     }
 
     /**
-     * Guarda una groupa en la base de datos
      * @param Group $group
      */
     public function save(Group $group)
@@ -33,13 +32,13 @@ class GroupRepository extends EntityRepository
      * @param int $id
      * @param int|null $lockMode
      * @param int|null $lockVersion
-     * @return Group|null
+     * @return object Group|null
      */
     public function find($id, $lockMode = null, $lockVersion = null)
     {
         return parent::find($id, $lockMode, $lockVersion);
     }
-
+    
     /**
      * @param Group $group
      */
@@ -54,7 +53,9 @@ class GroupRepository extends EntityRepository
      */
     public function count()
     {
-        $dql = 'SELECT COUNT(g.id) FROM US\Reunion\Entity\Group g';
+
+        $dql = /** @lang dql */
+            'SELECT COUNT(g.id) FROM US\Reunion\Entity\Group g';
         $query = parent::getEntityManager()->createQuery($dql);
 
         return $query->getSingleScalarResult();
@@ -62,11 +63,12 @@ class GroupRepository extends EntityRepository
 
     public function findByOr($criteria)
     {
-        $dql = 'SELECT t FROM US\Cultus\Entity\Taller\Taller t';
+        $dql = /** @lang dql */
+            'SELECT g FROM US\Reunion\Entity\Group g';
         if (count($criteria) > 0) {
             $dql .= ' WHERE 1 = 0';
             foreach ($criteria as $key => $value) {
-                $dql .= " OR t.$key LIKE '%$value%'";
+                $dql .= " OR g.$key LIKE '%$value%'";
             }
         }
         $query = parent::getEntityManager()->createQuery($dql);

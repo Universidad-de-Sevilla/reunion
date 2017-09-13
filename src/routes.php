@@ -4,7 +4,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-//global $app;
+global $app;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 

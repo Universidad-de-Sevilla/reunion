@@ -1,8 +1,6 @@
 <?php
 
-/**
- * Ejemplo comando de Doctrine $> bin/console orm:schema-tool:update --force --dump-sql
- */
+//bin/console orm:schema-tool:update --force --dump-sql
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
