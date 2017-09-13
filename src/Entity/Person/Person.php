@@ -1,6 +1,6 @@
 <?php
 
-namespace US\Reunion\Entity;
+namespace US\Reunion\Entity\Person;
 
 
 use Symfony\Component\Validator\Mapping\ClassMetadata;
@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @Entity
+ * @Table(name="Person")
  */
 class Person
 {

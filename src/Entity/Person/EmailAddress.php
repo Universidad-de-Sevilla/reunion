@@ -1,6 +1,6 @@
 <?php
 
-namespace US\Reunion\Entity;
+namespace US\Reunion\Entity\Person;
 
 /**
  * Implements a ValueObject

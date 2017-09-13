@@ -4,9 +4,9 @@ namespace US\Reunion\Entity\Meeting;
 
 /**
  * @Entity
- * @Table(name="MeetingState")
+ * @Table(name="MeetingStatus")
  */
-class State
+class Status
 {
     /**
      * @Id
@@ -20,7 +20,7 @@ class State
      * @Column(type="string")
      * @var string
      */
-    private $title;
+    private $names;
 
     /**
      * @Column(type="string")
@@ -77,6 +77,22 @@ class State
     /**
      * @return string
      */
+    public function getNames()
+    {
+        return $this->names;
+    }
+
+    /**
+     * @param string $names
+     */
+    public function setNames($names)
+    {
+        $this->names = $names;
+    }
+
+    /**
+     * @return string
+     */
     public function getDescription()
     {
         return $this->description;
@@ -89,8 +105,6 @@ class State
     {
         $this->description = $description;
     }
-
-
 
 }
 
