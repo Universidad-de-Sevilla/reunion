@@ -4,7 +4,6 @@ namespace US\Reunion\Entity\Person;
 
 /**
  * @Entity
- * @Table(name="Member")
  */
 class Member
 {
@@ -17,34 +16,22 @@ class Member
     private $id;
 
     /**
-     * @Column(type="integer")
-     * @var int
+     * OneToMany(targetEntity="Person")
+     * @var Person
      */
-    private $idRol;
+    private $person;
 
     /**
-     * @Column(type="integer")
-     * @var int
-     */
-    private $idPersona;
-
-    /**
-     * @Column(type="integer")
-     * @var int
+     * OneToMany(targetEntity="Group")
+     * @var Group
      */
     private $group;
 
     /**
-     * @Column(type="datetime")
-     * @var string
+     * @ManyToOne(targetEntity="Role")
+     * @var Role
      */
-    private $startDate;
-
-    /**
-     * @Column(type="datetime")
-     * @var string
-     */
-    private $endDate;
+    private $role;
 
     /**
      * @return int
@@ -55,169 +42,51 @@ class Member
     }
 
     /**
-     * @param int $id
+     * @return mixed
      */
-    public function setId($id)
+    public function getPerson()
     {
-        $this->id = $id;
+        return $this->person;
     }
 
     /**
-     * @return int
+     * @param mixed $person
      */
-    public function getIdRol()
+    public function setPerson($person)
     {
-        return $this->idRol;
+        $this->person = $person;
     }
 
     /**
-     * @param int $idRol
+     * @return Group
      */
-    public function setIdRol($idRol)
+    public function getGroup()
     {
-        $this->idRol = $idRol;
+        return $this->group;
     }
 
     /**
-     * @return int
+     * @param Group $group
      */
-    public function getIdPersona()
+    public function setGroup($group)
     {
-        return $this->idPersona;
+        $this->group = $group;
     }
 
     /**
-     * @param int $idPersona
+     * @return Role
      */
-    public function setIdPersona($idPersona)
+    public function getRole()
     {
-        $this->idPersona = $idPersona;
+        return $this->role;
     }
 
     /**
-     * @return int
+     * @param Role $role
      */
-    public function getIdGrupo()
+    public function setRole($role)
     {
-        return $this->idGrupo;
+        $this->role = $role;
     }
-
-    /**
-     * @param int $idGrupo
-     */
-    public function setIdGrupo($idGrupo)
-    {
-        $this->idGrupo = $idGrupo;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStartDate()
-    {
-        return $this->startDate;
-    }
-
-    /**
-     * @param string $startDate
-     */
-    public function setStartDate($startDate)
-    {
-        $this->startDate = $startDate;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEndDate()
-    {
-        return $this->endDate;
-    }
-
-    /**
-     * @param string $endDate
-     */
-    public function setEndDate($endDate)
-    {
-        $this->endDate = $endDate;
-    }
-
-
-
-//    /**
-//     * OneToMany(targetEntity="Person")
-//     * @var Person
-//     */
-//    private $person;
-//
-//    /**
-//     * OneToMany(targetEntity="Group")
-//     * @var Group
-//     */
-//    private $group;
-//
-//    /**
-//     * @ManyToOne(targetEntity="Role")
-//     * @var Role
-//     */
-//    private $role;
-//
-//    /**
-//     * @return int
-//     */
-//    public function getId()
-//    {
-//        return $this->id;
-//    }
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function getPerson()
-//    {
-//        return $this->person;
-//    }
-//
-//    /**
-//     * @param mixed $person
-//     */
-//    public function setPerson($person)
-//    {
-//        $this->person = $person;
-//    }
-//
-//    /**
-//     * @return Group
-//     */
-//    public function getGroup()
-//    {
-//        return $this->group;
-//    }
-//
-//    /**
-//     * @param Group $group
-//     */
-//    public function setGroup($group)
-//    {
-//        $this->group = $group;
-//    }
-//
-//    /**
-//     * @return Role
-//     */
-//    public function getRole()
-//    {
-//        return $this->role;
-//    }
-//
-//    /**
-//     * @param Role $role
-//     */
-//    public function setRole($role)
-//    {
-//        $this->role = $role;
-//    }
-//
-//
 
 }
