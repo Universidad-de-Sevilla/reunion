@@ -2,7 +2,7 @@
 
 namespace US\Reunion\Controller;
 
-use US\Reunion\Entity\Person;
+use US\Reunion\Entity\Person\Person;
 use US\Reunion\Repository\PersonRepository;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\RedirectResponse;

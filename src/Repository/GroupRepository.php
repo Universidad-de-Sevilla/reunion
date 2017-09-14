@@ -3,7 +3,7 @@
 namespace US\Reunion\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use US\Reunion\Entity\Group;
+use US\Reunion\Entity\Person\Group;
 
 class GroupRepository extends EntityRepository
 {
@@ -55,7 +55,7 @@ class GroupRepository extends EntityRepository
     {
 
         $dql = /** @lang dql */
-            'SELECT COUNT(g.id) FROM US\Reunion\Entity\Group g';
+            'SELECT COUNT(g.id) FROM US\Reunion\Entity\Person\Group g';
         $query = parent::getEntityManager()->createQuery($dql);
 
         return $query->getSingleScalarResult();
@@ -64,7 +64,7 @@ class GroupRepository extends EntityRepository
     public function findByOr($criteria)
     {
         $dql = /** @lang dql */
-            'SELECT g FROM US\Reunion\Entity\Group g';
+            'SELECT g FROM US\Reunion\Entity\Person\Group g';
         if (count($criteria) > 0) {
             $dql .= ' WHERE 1 = 0';
             foreach ($criteria as $key => $value) {

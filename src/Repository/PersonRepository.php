@@ -3,7 +3,7 @@
 namespace US\Reunion\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use US\Reunion\Entity\Person;
+use US\Reunion\Entity\Person\Person;
 
 class PersonRepository extends EntityRepository
 {
@@ -56,7 +56,8 @@ class PersonRepository extends EntityRepository
      */
     public function count()
     {
-        $dql = 'SELECT COUNT(p.id) FROM US\Reunion\Entity\Person p';
+        $dql = /** @lang dql */
+            'SELECT COUNT(p.id) FROM US\Reunion\Entity\Person\Person p';
         $query = parent::getEntityManager()->createQuery($dql);
         return $query->getSingleScalarResult();
     }

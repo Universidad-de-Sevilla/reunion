@@ -61,13 +61,13 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), $app['security.fire
 
 // Register repositories as Silex services
 $app['repository.group'] = function ($app) {
-    return new GroupRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Group'));
+    return new GroupRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Person\Group'));
 };
 $app['repository.meeting'] = function ($app) {
     return new MeetingRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Meeting\Meeting'));
 };
 $app['repository.person'] = function ($app) {
-    return new PersonRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Person'));
+    return new PersonRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Reunion\Entity\Person\Person'));
 };
 
 // Register controllers as Silex services
