@@ -2,56 +2,57 @@
 
 namespace US\Reunion\Entity\Person;
 
-
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
- * @Entity
- * @Table(name="Person")
+ * @ORM/Entity
+ * @ORM/Table(name="Person")
  */
 class Person
 {
     /**
-     * @Id
-     * @Column(type="integer")
-     * @GeneratedValue
+     * @ORM/Id
+     * @ORM/Column(type="integer")
+     * @ORM/GeneratedValue
      * @var int
      */
     private $id;
 
     /**
-     * @Column(type="datetime")
+     * @ORM/Column(type="datetime")
      * @var \DateTime
      */
     private $createdAt;
 
     /**
-     * @Column(type="string", length=150, unique=TRUE)
+     * @ORM/Column(type="string", length=150, unique=TRUE)
      * @var EmailAddress
      */
     private $email;
 
     /**
-     * @Column(type="string", length=150)
+     * @ORM/Column(type="string", length=150)
      * @var string
      */
     private $firstName;
 
     /**
-     * @Column(type="string", length=150)
+     * @ORM/Column(type="string", length=150)
      * @var string
      */
     private $lastName;
 
     /**
-     * @Column(type="datetime")
+     * @ORM/Column(type="datetime")
      * @var \DateTime
      */
     private $modifiedAt;
 
     /**
-     * @Column(type="string", nullable=TRUE, length=50)
+     * @ORM/Column(type="string", nullable=TRUE, length=50)
      * @var string
      */
     private $phoneNumber;

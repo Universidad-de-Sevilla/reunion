@@ -3,27 +3,27 @@
 namespace US\Reunion\Entity\Meeting;
 
 /**
- * @Entity
- * @Table(name="MeetingMailStatus")
+ * @ORM\Entity
+ * @ORM\Table(name="MeetingMailStatus")
  */
 class MailStatus
 {
     /**
-     * @Id
-     * @Column(type="integer")
-     * @GeneratedValue
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
      * @var int
      */
     private $id;
 
     /**
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      * @var string
      */
     private $name;
 
     /**
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      * @var string
      */
     private $icon;

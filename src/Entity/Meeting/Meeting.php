@@ -2,123 +2,119 @@
 
 namespace US\Reunion\Entity\Meeting;
 
+use Doctrine\ORM\Mapping as ORM;
+use US\Reunion\Entity\Person\Group;
+use US\Reunion\Entity\Person\Person;
+
 /**
- * @Entity
- * @Table(name="Meeting")
+ * @ORM\Entity
+ * @ORM\Table(name="Meeting")
  */
 class Meeting
 {
     /**
-     * @Id
-     * @Column(type="integer")
-     * @GeneratedValue
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
      * @var int
      */
     private $id;
 
     /**
-     * @Column(type="integer")
-     * @var int
+     * @ORM\ManyToOne(targetEntity="US\Reunion\Entity\Person\Person")
+     * @var Person
      */
-    private $idCreator;
+    private $creator;
 
     /**
-     * @Column(type="integer")
-     * @var int
+     * @ORM\ManyToOne(targetEntity="US\Reunion\Entity\Person\Person")
+     * @var Person
      */
-    private $idPresident;
+    private $president;
 
     /**
-     * @Column(type="integer")
-     * @var int
+     * @ORM\ManyToOne(targetEntity="US\Reunion\Entity\Person\Person")
+     * @var Person
      */
-    private $idSecretary;
+    private $secretary;
 
     /**
-     * @Column(type="integer")
-     * @var int
+     * @ORM\ManyToOne(targetEntity="US\Reunion\Entity\Person\Group", inversedBy="meetings")
+     * @var Group
      */
-    private $idGroup;
+    private $group;
 
     /**
-     * @Column(type="integer")
-     * @var int
+     * @ORM\ManyToOne(targetEntity="US\Reunion\Entity\Meeting\Status")
+     * @var Status
      */
-    private $idStatus;
+    private $status;
 
     /**
-     * @Column(type="integer")
+     * @ORM\Column(type="integer")
      * @var int
      */
-    private $number;
+    private $order;
 
     /**
-     * @Column(type="string")
-     * @var int
-     */
-    private $shortName;
-
-    /**
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      * @var string
      */
-    private $largeName;
-
+    private $name;
 
     /**
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      * @var string
      */
     private $place;
 
     /**
-     * @Column(type="string")
-     * @var string
-     */
-    private $followUp;
-
-    /**
-     * @Column(type="datetime")
-     * @var string
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $creationDate;
 
     /**
-     * @Column(type="datetime")
-     * @var string
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $modifyDate;
 
     /**
-     * @Column(type="datetime")
-     * @var string
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $estimatedStartDate;
 
     /**
-     * @Column(type="datetime")
-     * @var string
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $estimatedDuration;
 
     /**
-     * @Column(type="datetime")
-     * @var string
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $start;
 
     /**
-     * @Column(type="datetime")
-     * @var string
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $duration;
 
+    /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $privateNotes;
 
     /**
-     * @Column(type="text")
-     * @var text
+     * @ORM\Column(type="text")
+     * @var string
      */
-    private $note;
+    private $publicNotes;
 
     /**
      * @return int
@@ -129,139 +125,35 @@ class Meeting
     }
 
     /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return int
      */
-    public function getIdCreator()
+    public function getOrder()
     {
-        return $this->idCreator;
+        return $this->order;
     }
 
     /**
-     * @param int $idCreator
+     * @param int $order
      */
-    public function setIdCreator($idCreator)
+    public function setOrder($order)
     {
-        $this->idCreator = $idCreator;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdPresident()
-    {
-        return $this->idPresident;
-    }
-
-    /**
-     * @param int $idPresident
-     */
-    public function setIdPresident($idPresident)
-    {
-        $this->idPresident = $idPresident;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdSecretary()
-    {
-        return $this->idSecretary;
-    }
-
-    /**
-     * @param int $idSecretary
-     */
-    public function setIdSecretary($idSecretary)
-    {
-        $this->idSecretary = $idSecretary;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdGroup()
-    {
-        return $this->idGroup;
-    }
-
-    /**
-     * @param int $idGroup
-     */
-    public function setIdGroup($idGroup)
-    {
-        $this->idGroup = $idGroup;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdStatus()
-    {
-        return $this->idStatus;
-    }
-
-    /**
-     * @param int $idStatus
-     */
-    public function setIdStatus($idStatus)
-    {
-        $this->idStatus = $idStatus;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
-    /**
-     * @param int $number
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-    }
-
-    /**
-     * @return int
-     */
-    public function getShortName()
-    {
-        return $this->shortName;
-    }
-
-    /**
-     * @param int $shortName
-     */
-    public function setShortName($shortName)
-    {
-        $this->shortName = $shortName;
+        $this->order = $order;
     }
 
     /**
      * @return string
      */
-    public function getLargeName()
+    public function getName()
     {
-        return $this->largeName;
+        return $this->name;
     }
 
     /**
-     * @param string $largeName
+     * @param string $name
      */
-    public function setLargeName($largeName)
+    public function setName($name)
     {
-        $this->largeName = $largeName;
+        $this->name = $name;
     }
 
     /**
@@ -278,22 +170,6 @@ class Meeting
     public function setPlace($place)
     {
         $this->place = $place;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFollowUp()
-    {
-        return $this->followUp;
-    }
-
-    /**
-     * @param string $followUp
-     */
-    public function setFollowUp($followUp)
-    {
-        $this->followUp = $followUp;
     }
 
     /**
@@ -393,19 +269,115 @@ class Meeting
     }
 
     /**
-     * @return text
+     * @return Person
      */
-    public function getNote()
+    public function getCreator()
     {
-        return $this->note;
+        return $this->creator;
     }
 
     /**
-     * @param text $note
+     * @param Person $creator
      */
-    public function setNote($note)
+    public function setCreator($creator)
     {
-        $this->note = $note;
+        $this->creator = $creator;
+    }
+
+    /**
+     * @return Person
+     */
+    public function getPresident()
+    {
+        return $this->president;
+    }
+
+    /**
+     * @param Person $president
+     */
+    public function setPresident($president)
+    {
+        $this->president = $president;
+    }
+
+    /**
+     * @return Person
+     */
+    public function getSecretary()
+    {
+        return $this->secretary;
+    }
+
+    /**
+     * @param Person $secretary
+     */
+    public function setSecretary($secretary)
+    {
+        $this->secretary = $secretary;
+    }
+
+    /**
+     * @return Group
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+
+    /**
+     * @param Group $group
+     */
+    public function setGroup($group)
+    {
+        $this->group = $group;
+    }
+
+    /**
+     * @return Status
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param Status $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrivateNotes()
+    {
+        return $this->privateNotes;
+    }
+
+    /**
+     * @param string $privateNotes
+     */
+    public function setPrivateNotes($privateNotes)
+    {
+        $this->privateNotes = $privateNotes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPublicNotes()
+    {
+        return $this->publicNotes;
+    }
+
+    /**
+     * @param string $publicNotes
+     */
+    public function setPublicNotes($publicNotes)
+    {
+        $this->publicNotes = $publicNotes;
     }
 
 }

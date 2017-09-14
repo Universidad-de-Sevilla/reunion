@@ -3,44 +3,95 @@
 namespace US\Reunion\Entity\Person;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @Entity
- * @Table(name="Team")
+ * @ORM/Entity
+ * @ORM/Table(name="Team")
  */
 class Group
 {
     /**
-     * @Id
-     * @Column(type="integer")
-     * @GeneratedValue
+     * @ORM/Id
+     * @ORM/Column(type="integer")
+     * @ORM/GeneratedValue
      * @var int
      */
     private $id;
 
     /**
-     * @Column(type="string")
+     * @ORM/Column(type="string")
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @ORM/OneToMany(targetEntity="US\Reunion\Entity\Person\Member", mappedBy="group")
+     * @var Member[]
+     */
+    private $members;
+
+    /**
+     * @ORM/Column(type="string")
      * @var string
      */
     private $name;
 
     /**
-     * @Column(type="string")
-     * @var string
-     */
-    private $descripcion;
-
-    /**
-     * @Column(type="datetime")
+     * @ORM/Column(type="datetime")
      * @var string
      */
     private $startDate;
 
     /**
-     * @Column(type="datetime")
+     * @ORM/Column(type="datetime")
      * @var string
      */
     private $endDate;
+
+
+    /**
+     * @param array $data
+     */
+    public function __construct($data)
+    {
+        foreach ($data as $name => $value) {
+            $this->$name = $value;
+        }
+        $this->miembros = new ArrayCollection();
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @param string $endDate
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+    }
 
     /**
      * @return int
@@ -51,11 +102,19 @@ class Group
     }
 
     /**
-     * @param int $id
+     * @param Member $member
      */
-    public function setId($id)
+    public function addMember($member)
     {
-        $this->id = $id;
+        $this->members[] = $member;
+    }
+
+     /**
+     * @return Member[]
+     */
+    public function getMembers()
+    {
+        return $this->members;
     }
 
     /**
@@ -77,22 +136,6 @@ class Group
     /**
      * @return string
      */
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
-
-    /**
-     * @param string $descripcion
-     */
-    public function setDescripcion($descripcion)
-    {
-        $this->descripcion = $descripcion;
-    }
-
-    /**
-     * @return string
-     */
     public function getStartDate()
     {
         return $this->startDate;
@@ -106,79 +149,5 @@ class Group
         $this->startDate = $startDate;
     }
 
-    /**
-     * @return string
-     */
-    public function getEndDate()
-    {
-        return $this->endDate;
-    }
-
-    /**
-     * @param string $endDate
-     */
-    public function setEndDate($endDate)
-    {
-        $this->endDate = $endDate;
-    }
-
-
-
-//    /**
-//     * @OneToMany(targetEntity="US\Reunion\Entity\Person\Member", mappedBy="group")
-//     * @var Member[]
-//     */
-//    private $members;
-
-//    /**
-//     * @param array $data
-//     */
-//    public function __construct($data)
-//    {
-//        foreach ($data as $name => $value) {
-//            $this->$name = $value;
-//        }
-//        $this->miembros = new ArrayCollection();
-//    }
-
-//    /**
-//     * @return int
-//     */
-//    public function getId()
-//    {
-//        return $this->id;
-//    }
-//
-//    /**
-//     * @return string
-//     */
-//    public function getName()
-//    {
-//        return $this->name;
-//    }
-//
-//    /**
-//     * @param string $name
-//     */
-//    public function setName($name)
-//    {
-//        $this->name = $name;
-//    }
-//
-//    /**
-//     * @return Member[]
-//     */
-//    public function getMembers()
-//    {
-//        return $this->members;
-//    }
-//
-//    /**
-//     * @param Member $member
-//     */
-//    public function addMember($member)
-//    {
-//        $this->members[] = $member;
-//    }
 
 }
