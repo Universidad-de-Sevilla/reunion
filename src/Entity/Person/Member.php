@@ -28,8 +28,8 @@ class Member
     private $group;
 
     /**
-     * @ManyToOne(targetEntity="Role")
-     * @var Role
+     * @ManyToOne(targetEntity="MemberRole")
+     * @var MemberRole
      */
     private $role;
 
